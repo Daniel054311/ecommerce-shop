@@ -3,13 +3,17 @@ import { NavbarComponent } from "../../Shared/Navs/navbar/navbar.component";
 import { RouterLink } from '@angular/router';
 import { NewArivalComponent } from "../../Shared/new-arival/new-arival.component";
 import { MenCategoryComponent } from "../../Shared/men-category/men-category.component";
+import { WomenCategoryComponent } from "../../Shared/women-category/women-category.component";
+import { LimelightComponent } from "../../Shared/limelight/limelight.component";
+import { FeedbackComponent } from "../../Shared/feedback/feedback.component";
+import { FooterComponent } from "../../Shared/footer/footer.component";
 
 @Component({
     selector: 'app-home',
     standalone: true,
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',
-    imports: [NavbarComponent, RouterLink, NewArivalComponent, MenCategoryComponent]
+    imports: [NavbarComponent, RouterLink, NewArivalComponent, MenCategoryComponent, WomenCategoryComponent, LimelightComponent, FeedbackComponent, FooterComponent]
 })
 export class HomeComponent {
   yellowBanner: string = '../../../../assets/images/s1.jpg';
