@@ -1,4 +1,7 @@
 <div class="grid md:grid-cols-3 grid-cols-1 gap-4">
+  @if (loading) {
+  <div>Loading...😎</div>
+  }
   @for (product of products; track product) {
   <div (click)="routeToCombos()" class="relative ">
   <img class="rounded-md hover:shadow-md cursor-pointer" [src]="product.imageUrl" [alt]="product.title">

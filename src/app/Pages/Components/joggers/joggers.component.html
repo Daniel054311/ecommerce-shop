@@ -1,7 +1,7 @@
-<section class="py-[5%] px-[5%]">
+<section class="py-[10%] px-[5%]">
 
   <!--  -->
-  <section class="grid md:grid-cols-2 grid-cols-1 gap-5 py-[5%]">
+  <section class="grid md:grid-cols-2 grid-cols-1 gap-5">
     <div class="border-2 border-gray-300 w-full md:block hidden">
     iuyy
     </div>
@@ -9,13 +9,33 @@
     <div>
 
     <div class="flex justify-between py-[5%]">
-    <div>Combos</div>
+    <div>Joggers Clothing</div>
     <div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
     <div class="flex gap-4"><p class="text-voilentColor">New</p><p>Recommended</p></div>
-     </div>
+    </div>
+    </div>
+    <div class="flex justify-between md:flex-row flex-col  gap-4">
+      @if (loading) {
+      <div>Loading...😎</div>
+      }
+
+      @for (product of products; track product) {
+      <div class="relative ">
+      <img class="rounded-md shadow-md cursor-pointer" [src]="product.imageUrl" [alt]="product.title">
+
+      <div class="absolute md:top-5 top-5 md:right-3 right-2">
+      <button (click)="getFavourite(product)" class="bg-white rounded-full w-10 h-10 flex justify-center items-center">
+      <i [ngClass]="{ 'text-red-300': product.liked, 'text-blackColor': !product.liked }" class="fa-solid fa-heart relative hover:text-red-300 duration-300" ></i></button>
+      </div>
+
+      <div class="flex justify-between py-4">
+     <p>{{product.title}}</p>
+     <p class="font-bold"><button class="">{{product.price.currencyCode}}</button > {{  product.price.amount}}</p>
+    </div>
+    </div>
+      }
     </div>
 
-  <app-limelight></app-limelight>
     </div>
     </section>
 
@@ -23,7 +43,7 @@
     <!-- details -->
   <section class="py-[5%]">
     <div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
-      Combos Online in Ghana
+      Online Joggers Clothing in Ghana
     </div>
 
     <div class="flex flex-col gap-5 py-5">
@@ -39,13 +59,13 @@
     <!-- Best price -->
     <section class="">
     <div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
-      Buy Combos at Best Price
+      Buy Joggers at Best Price
     </div>
 
     <div class="bg-gray-100 gap-5 my-[5%] py-[5%] px-[5%] rounded-md">
 
     <div class="flex justify-between border-b-2 border-gray-300 py-4">
-    <div class="text-2xl font-bold">Combos Clothing</div>
+    <div class="text-2xl font-bold">Men's Clothing</div>
     <div class="text-2xl font-bold ">Best Price</div>
     </div>
 
