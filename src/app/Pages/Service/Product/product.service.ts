@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, throwError } from 'rxjs';
-import { ProductData } from './product-data';
+import { Product, ProductData } from './product-data';
 
 @Injectable({
   providedIn: 'root'
@@ -57,8 +57,21 @@ export class ProductService {
     return this.http.get<any>(this.apiUrl);
   }
 
-  getProducts(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl2);
+  // getProducts(): Observable<any[]> {
+  //   return this.http.get<any[]>(this.apiUrl2);
+  // }
+
+  getProducts(): Observable<Product[]> {
+    return this.http.get<any>(this.apiUrl2).pipe(
+      map(data => data.data.products.edges
+        .map((edge: any) => ({
+        id: edge.node.id,
+        title: edge.node.title,
+        description: edge.node.description,
+        price: edge.node.variants.edges[0].node.price,
+        imageUrl: edge.node.featuredImage.url
+      })))
+    );
   }
 
 }

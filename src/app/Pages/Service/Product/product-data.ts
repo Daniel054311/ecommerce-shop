@@ -28,8 +28,15 @@ export interface ProductData {
   };
 }
 
-export interface ApiResponse {
-  products: {
-    edges: any[]; // Define the structure of 'edges' array
+
+export interface Product {
+liked: any;
+  id: string;
+  title: string;
+  description: string;
+  price: {
+    amount: string;
+    currencyCode: string;
   };
+  imageUrl: string;
 }
