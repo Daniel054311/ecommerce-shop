@@ -1,0 +1,18 @@
+<div class="grid md:grid-cols-3 grid-cols-1 gap-4">
+  @for (product of products; track product) {
+  <div (click)="routeToCombos()" class="relative ">
+  <img class="rounded-md hover:shadow-md cursor-pointer" [src]="product.imageUrl" [alt]="product.title">
+
+  <div class="absolute top-10 right-10 ">
+  <button (click)="getFavourite(product)" class="bg-white rounded-full w-10 h-10 flex justify-center items-center">
+  <i [ngClass]="{ 'text-red-300': product.liked, 'text-blackColor': !product.liked }" class="fa-solid fa-heart relative hover:text-red-300 duration-300" ></i></button>
+  </div>
+
+  <div class="flex justify-between py-4">
+ <p>{{product.title}}</p>
+ <p class="font-bold"><button>{{product.price.currencyCode}}</button> {{  product.price.amount}}</p>
+  </div>
+
+  </div>
+  }
+</div>
