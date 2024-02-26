@@ -1,0 +1,83 @@
+<section class="py-[5%] px-[5%]">
+
+<!--  -->
+
+<section class="grid grid-cols-2 gap-5">
+<div class="border-2 border-gray-300 w-full md:block hidden">
+iuyy
+</div>
+
+<div>
+
+<div class="flex justify-between py-[5%]">
+<div>Women’s Clothing</div>
+<div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
+<div class="flex gap-4"><p class="text-voilentColor">New</p><p>Recommended</p></div>
+ </div>
+</div>
+<!-- <div class="flex justify-between md:flex-row flex-col  gap-4">
+  @for (product of products; track product) {
+  <div class="relative ">
+  <img class="rounded-md shadow-md cursor-pointer" [src]="product.imageUrl" [alt]="product.title">
+
+  <div class="absolute md:top-10 top-5 md:right-10 right-2">
+  <button (click)="getFavourite(product)" class="bg-white rounded-full w-10 h-10 flex justify-center items-center">
+  <i [ngClass]="{ 'text-red-300': product.liked, 'text-blackColor': !product.liked }" class="fa-solid fa-heart relative hover:text-red-300 duration-300" ></i></button>
+  </div>
+
+  <div class="flex justify-between py-4">
+ <p>{{product.title}}</p>
+ <p class="font-bold"><button class="">{{product.price.currencyCode}}</button > {{  product.price.amount}}</p>
+</div>
+</div>
+  }
+</div> -->
+<app-women-category></app-women-category>
+</div>
+
+</section>
+
+<!-- details -->
+<section class="py-[5%]">
+<div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
+  Clothing for Women Online in Ghana
+</div>
+
+<div class="flex flex-col gap-5 py-5">
+@for (detail of products; track detail) {
+<div>
+<h1 class="font-bold">{{detail.title}}</h1>
+<p>{{detail.description}}</p>
+</div>
+}
+</div>
+</section>
+
+<!-- Best price -->
+<section class="">
+  <div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
+  Buy Women's Clothing at Best Price
+  </div>
+
+<div class="bg-gray-100 gap-5 my-[5%] py-[5%] px-[5%] rounded-md">
+
+<div class="flex justify-between border-b-2 border-gray-300 py-4">
+<div class="text-2xl font-bold">Women's Clothing</div>
+<div class="text-2xl font-bold ">Best Price</div>
+</div>
+
+
+ @for (price of products; track price) {
+<div class="flex justify-between gap-4">
+<div>{{price.title}}</div>
+<div>{{price.price.currencyCode}} {{price.price.amount}}</div>
+</div>
+  }
+</div>
+</section>
+
+</section>
+
+<!-- footer -->
+<app-footer></app-footer>
+
