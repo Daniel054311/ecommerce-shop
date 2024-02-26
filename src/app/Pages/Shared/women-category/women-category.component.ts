@@ -1,31 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../Service/Product/product.service';
+import { Component } from '@angular/core';
 import { Product } from '../../Service/Product/product-data';
+import { ProductService } from '../../Service/Product/product.service';
 import { EMPTY, catchError, finalize } from 'rxjs';
-import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-men-category',
+  selector: 'app-women-category',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './men-category.component.html',
-  styleUrl: './men-category.component.css'
+  imports: [],
+  templateUrl: './women-category.component.html',
+  styleUrl: './women-category.component.css'
 })
-export class MenCategoryComponent implements OnInit{
-
+export class WomenCategoryComponent {
   products: Product[] = [];
   currentPage: number = 1;
   itemsPerPage: number = 8;
   loading: boolean = false;
 
-  constructor(private router:Router,private productService: ProductService){}
+  constructor(private router:Router ,private productService: ProductService){}
 
   ngOnInit(): void {
-  this.getMenCategory()
+  this.getWomenCategory()
   }
 
-  getMenCategory(): void {
+  getWomenCategory(): void {
     this.loading = true;
     this.productService.getProducts()
       .pipe(
@@ -33,7 +31,7 @@ export class MenCategoryComponent implements OnInit{
         finalize(() => this.loading = false)
       )
       .subscribe(products => {
-        this.products = products.filter(product => !product.title.toLowerCase().includes("women's"));
+        this.products = products.filter(product => product.title.toLowerCase().includes("women's"));
       });
   }
 
@@ -47,7 +45,7 @@ export class MenCategoryComponent implements OnInit{
     if (this.hasNextPage()) {
     this.loading = true;
       this.currentPage++;
-      this.getMenCategory();
+      this.getWomenCategory();
     }
   }
 
@@ -55,7 +53,7 @@ export class MenCategoryComponent implements OnInit{
     if (this.hasPreviousPage()) {
       this.loading = true;
       this.currentPage--;
-      this.getMenCategory();
+      this.getWomenCategory();
     }
   }
 
@@ -77,17 +75,8 @@ export class MenCategoryComponent implements OnInit{
     return this.products.slice(startIndex, endIndex);
   }
 
-
-  getFavourite(product: Product): void {
-    // Toggle the liked property of the product
-    product.liked = !product.liked;
-  }
-  trackFavourite(index: number, product: any): number {
-    return product.id;
-  }
-
-  routeToMen() {
-    this.router.navigate(["/men"])
+  routeToWomen() {
+  this.router.navigate(["/women"])
   }
 
   }
