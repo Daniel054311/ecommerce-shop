@@ -28,12 +28,19 @@ export class LimelightComponent {
     this.productService.getProducts()
       .pipe(
         catchError(() => EMPTY),
-        finalize(() => this.loading = false)
+        // finalize(() => this.loading = false)
       )
       .subscribe(products => {
         this.products = products.filter(product => product.title.toLowerCase().includes("sneaker"));
-        console.log(products)
+        this.loading = false;
       });
+  }
+
+  onProductSelect(product: Product): void {
+    // Navigate to the details page with the product ID as a parameter
+    this.productService.setSelectedProduct(product);
+    this.router.navigate(["/details"]);
+    console.log(product)
   }
 
   getFavourite(product: Product): void {
@@ -44,8 +51,6 @@ export class LimelightComponent {
     return product.id;
   }
 
-  routeToCombos() {
-  this.router.navigate(["/combos"])
-  }
+
 
 }

@@ -30,6 +30,7 @@ export interface ProductData {
 
 
 export interface Product {
+  find: any;
 liked: any;
   id: string;
   title: string;

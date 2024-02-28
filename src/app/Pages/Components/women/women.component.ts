@@ -5,6 +5,7 @@ import { Product } from '../../Service/Product/product-data';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from "../../Shared/footer/footer.component";
 import { WomenCategoryComponent } from "../../Shared/women-category/women-category.component";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-women',
@@ -18,7 +19,7 @@ export class WomenComponent implements OnInit{
 
   loading: boolean = false;
 
-  constructor(private productService: ProductService) { }
+  constructor(private router:Router, private productService: ProductService) { }
 
   ngOnInit(): void {
     this.getWomenCategory()
@@ -35,6 +36,8 @@ export class WomenComponent implements OnInit{
     this.products = products.filter(product => product.title.toLowerCase().includes("women's"));
     });
   }
+
+
 
   getFavourite(product: Product): void {
     // Toggle the liked property of the product

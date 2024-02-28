@@ -17,105 +17,119 @@
     </div>
 
     <div class="w-20 py-1 absolute bottom-10 left-[48%] md:block hidden">
-      <img class="w-full" src="../../../../assets/images/carousel-img.png" alt="" />
+      <img
+        class="w-full"
+        src="../../../../assets/images/carousel-img.png"
+        alt=""
+      />
     </div>
 
     <!-- Font Awesome icons for carousel navigation -->
-    <div class="absolute top-[50%] left-10 transform -translate-y-1/2">
-      <button (click)="prevImage()" class="text-white text-3xl">
-        <i class="fas fa-angle-left"></i>
-      </button>
+    <div class="fixed top-[25%] md:top-1/2 transform -translate-y-1/2 left-5">
+    <button (click)="prevImage()" class="text-white text-3xl">
+    <i class="fas fa-angle-left"></i>
+    </button>
     </div>
-    <div class="absolute top-[50%] right-10 transform -translate-y-1/2">
-      <button (click)="nextImage()" class="text-white text-3xl">
-        <i class="fas fa-angle-right"></i>
-      </button>
+    <div class="fixed top-[25%] md:top-1/2 transform -translate-y-1/2 right-5">
+    <button (click)="nextImage()" class="text-white text-3xl">
+    <i class="fas fa-angle-right"></i>
+    </button>
     </div>
-  </section>
+    </section>
 
-  <section
+    <section
     class="flex md:flex-row flex-col items-center justify-between gap-4 p-[5%]"
-  >
+    >
     <div class="relative">
-      <img  class="w-full" src="../../../../assets/images/ads1.png" alt="" />
+    <img class="w-full" src="../../../../assets/images/ads1.png" alt="" />
 
-      <div class="absolute top-[20%] left-8">
-        <div class="flex flex-col gap-10 text-white">
-          <div class="flex flex-col gap-5">
-            <p>Low Price</p>
-            <h1 class="font-bold text-3xl">High Coziness</h1>
-            <p>UPTO 50% OFF</p>
-          </div>
+    <div class="absolute top-[20%] left-8">
+    <div class="flex flex-col gap-10 text-white">
+    <div class="flex flex-col gap-5">
+    <p>Low Price</p>
+    <h1 class="font-bold text-3xl">High Coziness</h1>
+    <p>UPTO 50% OFF</p>
+    </div>
 
-          <ul class="text-white underline top-5 md:block hidden">
-            <li><a routerLink="">Explore Items</a></li>
-          </ul>
-        </div>
-      </div>
+    <ul class="text-white underline top-5 md:block hidden">
+    <li><a routerLink="">Explore Items</a></li>
+    </ul>
+    </div>
+    </div>
     </div>
 
     <!-- <div><img class="w-full" src="../../../../assets/images/ads2.jpg" alt=""></div> -->
     <div class="relative">
-      <img class="w-full"  src="../../../../assets/images/ads2.jpg" alt="" />
+    <img class="w-full" src="../../../../assets/images/ads2.jpg" alt="" />
 
-      <div class="absolute top-[20%] left-8">
-        <div class="flex flex-col gap-10 text-white">
-          <div class="flex flex-col gap-5">
-            <p>Beyoung Presents</p>
-            <h1 class="font-bold text-3xl w-[90%]">Breezy Summer Style</h1>
-            <p>UPTO 50% OFF</p>
-          </div>
+    <div class="absolute top-[20%] left-8">
+    <div class="flex flex-col gap-10 text-white">
+    <div class="flex flex-col gap-5">
+    <p>Beyoung Presents</p>
+    <h1 class="font-bold text-3xl w-[90%]">Breezy Summer Style</h1>
+    <p>UPTO 50% OFF</p>
+    </div>
 
-          <ul class="text-white underline top-5 md:block hidden">
-            <li><a routerLink="">Explore Items</a></li>
-          </ul>
-        </div>
-      </div>
+    <ul class="text-white underline top-5 md:block hidden">
+    <li><a routerLink="">Explore Items</a></li>
+    </ul>
+    </div>
+    </div>
     </div>
   </section>
 
   <!-- New Arrival -->
   <section class="px-[5%]">
-    <div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
+  <div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
       New Arrival
-    </div>
+  </div>
 
-    <div class="py-[5%]">
+  <div class="py-[5%]">
       <app-new-arival></app-new-arival>
-    </div>
+  </div>
   </section>
 
   <!--Big Savung Zone  -->
   <section class="px-[5%]">
-    <div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
+  <div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
       Big Saving Zone
+  </div>
+
+    <div class="py-[5%] grid md:grid-cols-3 grid-cols-1 gap-3">
+    <div class="relative">
+    <img
+          class="w-full"
+          src="../../../../assets/images/saving5.png"
+          alt="big savings"
+        />
+
+    <div class="absolute top-[20%] left-2 text-white">
+    <div class="flex flex-col gap-5">
+    <h1 class="font-bold text-3xl w-[50%]">Hawaiian Shirts</h1>
+    <p>Dress up in summer vibe</p>
+    <p>UPTO 50% OFF</p>
+    <div class="ml-[20%]">
+    <i class="fas fa-arrow-down"></i>
+    </div>
+    <button class="border-2 border-white w-[50%] rounded-md">
+      SHOP NOW
+   </button>
+    </div>
+    </div>
     </div>
 
-    <div class="py-[5%] grid md:grid-cols-3 grid-cols-1  gap-3">
       <div class="relative">
-        <img class="w-full" src="../../../../assets/images/saving5.png" alt="big savings" />
-
-        <div class="absolute top-[20%] left-2 text-white">
-          <div class="flex flex-col gap-5">
-            <h1 class="font-bold text-3xl w-[50%]">Hawaiian Shirts</h1>
-            <p>Dress up in summer vibe</p>
-            <p>UPTO 50% OFF</p>
-            <div class="ml-[20%]">
-              <i class="fas fa-arrow-down"></i>
-            </div>
-            <button class="border-2 border-white w-[50%] rounded-md">
-              SHOP NOW
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="relative">
-        <img class="w-full" src="../../../../assets/images/saving4.png" alt="big savings" />
+        <img
+          class="w-full"
+          src="../../../../assets/images/saving4.png"
+          alt="big savings"
+        />
 
         <div class="absolute top-[10%] right-4">
           <div class="flex flex-col gap-5 justify-center text-white">
-          <button class="bg-blackBg p-2 rounded-md text-white">Limited Stock</button>
+            <button class="bg-blackBg p-2 rounded-md text-white">
+              Limited Stock
+            </button>
             <h1 class="font-bold text-3xl w-[50%]">Printed T-Shirt</h1>
             <p>New Designs Every Week</p>
             <p>UPTO 40% OFF</p>
@@ -129,89 +143,115 @@
         </div>
       </div>
 
-   <div class="relative">
-   <img class="w-full" src="../../../../assets/images/saving3.png" alt="big savings" />
+      <div class="relative">
+        <img
+          class="w-full"
+          src="../../../../assets/images/saving3.png"
+          alt="big savings"
+        />
 
-   <div class="absolute top-[20%] right-4 text-blackColor">
-   <div class="flex flex-col gap-5">
-   <h1 class="font-bold text-3xl w-[50%]">Cargo Joggers</h1>
-   <p>Move with style & comfort</p>
-   <p>UPTO 50% OFF</p>
-   <div class="mr-[20%]">
-   <i class="fas fa-arrow-down"></i>
-    </div>
-    <button class="border-2 border-blackBorder w-[50%] rounded-md">
+        <div class="absolute top-[20%] right-4 text-blackColor">
+          <div class="flex flex-col gap-5">
+            <h1 class="font-bold text-3xl w-[50%]">Cargo Joggers</h1>
+            <p>Move with style & comfort</p>
+            <p>UPTO 50% OFF</p>
+            <div class="mr-[20%]">
+              <i class="fas fa-arrow-down"></i>
+            </div>
+            <button class="border-2 border-blackBorder w-[50%] rounded-md">
               SHOP NOW
-    </button>
-    </div>
-    </div>
-    </div>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- second grid -->
     <div class="grid md:grid-cols-2 grid-cols-1 gap-5">
-    <div class="relative ">
-    <img class="w-full" src="../../../../assets/images/saving1.png" alt="big savings" />
+      <div class="relative">
+        <img
+          class="w-full"
+          src="../../../../assets/images/saving1.png"
+          alt="big savings"
+        />
 
-    <div class="absolute top-[15%] right-[20%] text-blackColor">
-    <div class="flex flex-col gap-5 justify-center items-center">
-    <h1 class="font-bold text-3xl w-[50%]">Urban Shirts</h1>
-    <p>Live In Confort</p>
-    <p class="font-bold ">FLAT 60% OFF</p>
-    <div class="mr-[20%]">
-    <i class="fas fa-arrow-down"></i>
-    </div>
-    <button class="border-2 border-blackBorder p-1 rounded-md">
-     SHOP NOW
-    </button>
-    </div>
-    </div>
-    </div>
+        <div class="absolute top-[15%] right-[20%] text-blackColor">
+          <div class="flex flex-col gap-5 justify-center items-center">
+            <h1 class="font-bold text-3xl w-[50%]">Urban Shirts</h1>
+            <p>Live In Confort</p>
+            <p class="font-bold">FLAT 60% OFF</p>
+            <div class="mr-[20%]">
+              <i class="fas fa-arrow-down"></i>
+            </div>
+            <button class="border-2 border-blackBorder p-1 rounded-md">
+              SHOP NOW
+            </button>
+          </div>
+        </div>
+      </div>
 
-    <div class="relative">
-    <img class="w-full" src="../../../../assets/images/saving2.png" alt="big savings" />
+      <div class="relative">
+        <img
+          class="w-full"
+          src="../../../../assets/images/saving2.png"
+          alt="big savings"
+        />
 
-    <div class="absolute top-[15%] right-[20%]  text-blackColor">
-    <div class="flex flex-col gap-5  justify-center items-center">
-    <h1 class="font-bold text-3xl w-[50%]">Urban Shirts</h1>
-    <p>Live In Confort</p>
-    <p class="font-bold ">FLAT 60% OFF</p>
-    <div class="mr-[20%]">
-    <i class="fas fa-arrow-down"></i>
-    </div>
-    <button class="border-2 border-blackBorder p-1 rounded-md">
-      SHOP NOW
-    </button>
-    </div>
-    </div>
-    </div>
-
+        <div class="absolute top-[15%] right-[20%] text-blackColor">
+          <div class="flex flex-col gap-5 justify-center items-center">
+            <h1 class="font-bold text-3xl w-[50%]">Urban Shirts</h1>
+            <p>Live In Confort</p>
+            <p class="font-bold">FLAT 60% OFF</p>
+            <div class="mr-[20%]">
+              <i class="fas fa-arrow-down"></i>
+            </div>
+            <button class="border-2 border-blackBorder p-1 rounded-md">
+              SHOP NOW
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- second banner -->
     <div class="grid md:grid-cols-2 grid-cols-1 py-[5%]">
-    <div class="relative flex justify-center items-center">
-    <img class="w-full" src="../../../../assets/images/banner3.png" alt="">
-    <div class="absolute text-white md:left-[25%] left-3 md:right-[25%] ">
-    <h1 class="font-bold text-3xl ">WE MADE YOUR EVERYDAY FASHION BETTER!</h1>
-    <p class="md:py-8 py-2">In our journey to improve everyday fashion, euphoria presents EVERYDAY wear range - Comfortable & Affordable fashion 24/7 </p>
-    <button class="bg-white text-blackColor rounded-md py-2 px-4">Shop Now</button>
-  </div>
-    </div>
-    <div>
-    <img class="w-full h-full" src="../../../../assets/images/banner2.png" alt="">
-    </div>
+      <div class="relative flex justify-center items-center">
+        <img
+          class="w-full"
+          src="../../../../assets/images/banner3.png"
+          alt=""
+        />
+        <div class="absolute text-white md:left-[25%] left-3 md:right-[25%]">
+          <h1 class="font-bold text-3xl">
+            WE MADE YOUR EVERYDAY FASHION BETTER!
+          </h1>
+          <p class="md:py-8 py-2">
+            In our journey to improve everyday fashion, euphoria presents
+            EVERYDAY wear range - Comfortable & Affordable fashion 24/7
+          </p>
+          <button class="bg-white text-blackColor rounded-md py-2 px-4">
+            Shop Now
+          </button>
+        </div>
+      </div>
+      <div>
+        <img
+          class="w-full h-full"
+          src="../../../../assets/images/banner2.png"
+          alt=""
+        />
+      </div>
     </div>
   </section>
 
   <!-- Men Category -->
   <section class="px-[5%]">
-  <div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
-    Categories For Men
-  </div>
-  <div class="py-[5%]">
-  <app-men-category></app-men-category>
-  </div>
+    <div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
+      Categories For Men
+    </div>
+    <div class="py-[5%]">
+      <app-men-category></app-men-category>
+    </div>
   </section>
 
   <!-- Women Category -->
@@ -220,37 +260,35 @@
       Categories For Women
     </div>
     <div class="py-[5%]">
-     <app-women-category></app-women-category>
+      <app-women-category></app-women-category>
     </div>
-    </section>
+  </section>
 
-    <!-- Black Banner -->
-    <div class="px-[5%] py-[5%] flex justify-center">
-    <img src="../../../../assets/images/blackBanner.png" alt="">
-    </div>
+  <!-- Black Banner -->
+  <div class="px-[5%] py-[5%] flex justify-center">
+    <img src="../../../../assets/images/blackBanner.png" alt="" />
+  </div>
 
-     <!-- Women Category -->
-  <section class="px-[5%]  ">
-  <div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
+  <!-- Women Category -->
+  <section class="px-[5%]">
+    <div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
       In The Limelight
-  </div>
-   <div class="py-[5%]">
-   <app-limelight></app-limelight>
-  </div>
+    </div>
+    <div class="py-[5%]">
+      <app-limelight></app-limelight>
+    </div>
   </section>
 
   <!-- Feedback -->
-  <section class="px-[5%] ">
-  <div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
-  Feedback
-  </div>
-  <div class="py-[5%]">
-  <app-feedback></app-feedback>
-  </div>
+  <section class="px-[5%]">
+    <div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
+      Feedback
+    </div>
+    <div class="py-[5%]">
+      <app-feedback></app-feedback>
+    </div>
   </section>
 
   <!-- Footer -->
   <app-footer></app-footer>
-
-
 </section>

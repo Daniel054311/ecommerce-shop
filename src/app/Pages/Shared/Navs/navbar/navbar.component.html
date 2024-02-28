@@ -1,45 +1,48 @@
 <header>
-  <nav class="flex items-center justify-between py-5 px-10 shadow-md fixed w-full z-50 bg-white">
-    <div><img src="../../../../../assets/Logo.png" alt="logo"></div>
+  <nav class="flex items-center justify-between py-5 px-10 shadow-md fixed top-0 w-full z-50 bg-white">
+    <div (click)="routeToHome()" class="cursor-pointer"><img src="../../../../../assets/Logo.png" alt="logo"></div>
 
     <ul id="navItems" class="hidden md:flex justify-between gap-10 ">
-      <li class="text-gray-300 hover:text-black duration-300"><a routerLink="">Shop</a></li>
-      <li class="text-gray-300 hover:text-black duration-300"><a routerLink="/men">Men</a></li>
-      <li class="text-gray-300 hover:text-black duration-300"><a routerLink="/women">Women</a></li>
-      <li class="text-gray-300 hover:text-black duration-300"><a routerLink="/combos">Combos</a></li>
-      <li class="text-gray-300 hover:text-black duration-300"><a routerLink="/joggers">Joggers</a></li>
+      <li class="text-gray-300 hover:text-blackColor duration-300"><a routerLink="" routerLinkActive="text-blackColor">Shop</a></li>
+      <li class="text-gray-300 hover:text-blackColor duration-300"><a routerLink="/men" routerLinkActive="text-blackColor">Men</a></li>
+      <li class="text-gray-300 hover:text-blackColor duration-300"><a routerLink="/women" routerLinkActive="text-blackColor ">Women</a></li>
+      <li class="text-gray-300 hover:text-blackColor duration-300"><a routerLink="/combos" routerLinkActive="text-blackColor">Combos</a></li>
+      <li class="text-gray-300 hover:text-blackColor duration-300"><a routerLink="/joggers" routerLinkActive="text-blackColor">Joggers</a></li>
     </ul>
 
-    <div id="searchBar" class="md:flex hidden rounded-md bg-[#F6F6F6] w-70 px-4 py-1">
-      <form class="flex items-center gap-4">
-        <button><i class="fas fa-search text-gray-400"></i></button>
-        <input type="text" placeholder="Search" class="bg-[#F6F6F6] w-full outline-none border-none">
-      </form>
+    <div id="searchBar" class="md:flex hidden  rounded-md bg-[#F6F6F6] w-70 px-4 py-1">
+    <form class="flex items-center gap-4">
+    <button><i class="fas fa-search text-gray-400"></i></button>
+    <input type="text" placeholder="Search" class="bg-[#F6F6F6] w-full outline-none border-none">
+    </form>
     </div>
 
     <!-- icons -->
     <div class="flex gap-5">
-      <div class="bg-[#F6F6F6] rounded-md p-2"><img src="../../../../../assets/icons/heart.png" alt="favorite icon"></div>
-      <div class="bg-[#F6F6F6] rounded-md p-2"><img src="../../../../../assets/icons/user.png" alt="user icon"></div>
-      <div class="bg-[#F6F6F6] rounded-md p-2"><img src="../../../../../assets/icons/cart.png" alt=""></div>
+    <button class="bg-[#F6F6F6]   rounded-md p-2"><img src="../../../../../assets/icons/heart.png" alt="favorite icon"></button>
+    <button class="bg-[#F6F6F6] rounded-md p-2"><img src="../../../../../assets/icons/user.png" alt="user icon"></button>
+    <button class="bg-[#F6F6F6] rounded-md p-2 relative">
+    <img src="../../../../../assets/icons/cart.png" alt="">
+    <span class="absolute bg-red-300 w-5 h-5 rounded-full text-white text-center top-0 right-0">{{getProductCount() }}</span>
+    </button>
     </div>
 
     <!-- Hamburger menu -->
     <div class="md:hidden">
-      <button (click)="toggleNav()" id="hamburger" class="text-gray-800 focus:outline-none">
-        <i class="fas fa-bars"></i>
-      </button>
+    <button (click)="toggleNav()" id="hamburger" class="text-gray-800 focus:outline-none">
+    <i class="fas fa-bars"></i>
+    </button>
     </div>
 
     <!-- media nav -->
     <div [ngClass]="{'hidden': ! showNav , 'opacity-0 translate-y-[-20px]': !showNav, 'transition-transform duration-300 ease-in-out': true}" id="mediaNavContainer" class="absolute top-20 right-0 bg-white w-64">
-      <ul id="mediaNavItems" class="flex flex-col justify-between items-center gap-10">
-        <li class="text-gray-300 hover:text-black duration-300"><a routerLink="">Shop</a></li>
-        <li class="text-gray-300 hover:text-black duration-300"><a routerLink="">Men</a></li>
-        <li class="text-gray-300 hover:text-black duration-300"><a routerLink="">Women</a></li>
-        <li class="text-gray-300 hover:text-black duration-300"><a routerLink="">Combos</a></li>
-        <li class="text-gray-300 hover:text-black duration-300"><a routerLink="">Joggers</a></li>
-      </ul>
+    <ul id="mediaNavItems" class="flex flex-col justify-between items-center gap-10">
+    <li class="text-gray-300 hover:text-black duration-300" (click)="hidNav()"><a routerLink="" routerLinkActive="text-blackColor">Shop</a></li>
+    <li class="text-gray-300 hover:text-black duration-300" (click)="hidNav()"><a routerLink="/men" routerLinkActive="text-blackColor">Men</a></li>
+    <li class="text-gray-300 hover:text-black duration-300" (click)="hidNav()"><a routerLink="women" routerLinkActive="text-blackColor">Women</a></li>
+    <li class="text-gray-300 hover:text-black duration-300" (click)="hidNav()"><a routerLink="combos" routerLinkActive="text-blackColor">Combos</a></li>
+    <li class="text-gray-300 hover:text-black duration-300" (click)="hidNav()"><a routerLink="/joggers" routerLinkActive="text-blackColor">Joggers</a></li>
+    </ul>
     </div>
   </nav>
 </header>

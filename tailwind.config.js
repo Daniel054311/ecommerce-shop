@@ -8,10 +8,12 @@ module.exports = {
         blackColor:'rgba(60, 66, 66, 1)'
       },
       backgroundColor:{
-      blackBg:'rgba(60, 66, 66, 1)'
+        blackBg: 'rgba(60, 66, 66, 1)',
+        grayBg:'rgba(190, 188, 189, 1)'
       },
       borderColor: {
-        blackBorder:'rgba(60, 66, 66, 1)'
+        blackBorder: 'rgba(60, 66, 66, 1)',
+        grayColor:'rgba(190, 188, 189, 1)'
       },
     },
 

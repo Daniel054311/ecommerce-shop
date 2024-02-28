@@ -1,30 +1,25 @@
 @if (loading) {
-  <div>Loading...😎</div>
+  <div class="text-voilentColor">Loading...😎</div>
 }
 
 
 <div class="grid md:grid-cols-4 grid-cols-2 gap-5">
 @if (!loading && displayedProducts.length >0) {
 @for (product of displayedProducts; track product) {
-<div (click)="routeToMen()" class="relative cursor-pointer">
-<img class="rounded-md hover:shadow-md cursor-pointer" [src]="product.imageUrl" [alt]="product.title">
+<div  class="relative ">
+<img (click)="onProductSelect(product)" class=" rounded-md hover:shadow-md cursor-pointer" [src]="product.imageUrl" [alt]="product.title">
 
 <div class="absolute top-2 right-2 ">
 <button (click)="getFavourite(product)" class="bg-white rounded-full w-7 h-7 flex justify-center items-center">
 <i [ngClass]="{ 'text-red-300': product.liked, 'text-blackColor': !product.liked }" class="fa-solid fa-heart relative hover:text-red-300 duration-300" ></i></button>
 </div>
-
 <div class="flex justify-between py-3">
 <p>{{product.title}}</p>
-@if (paginationVisible) {
-<div class="flex gap-10">
-<button class="cursor-pointer" (click)="prevPage()" [disabled]="currentPage === 1"><i class="fas fa-arrow-left"></i></button>
-<button class="cursor-pointer" (click)="nextPage()"><i class="fas fa-arrow-right"></i></button>
-</div>
- }
 </div>
  </div>
+
 }}
+
 
 @if (!loading && displayedProducts.length === 0) {
 <div>
@@ -33,6 +28,13 @@
 }
 
 </div>
+@if (paginationVisible) {
+  <div class="flex gap-10">
+  <button class="cursor-pointer" (click)="prevPage()" [disabled]="currentPage === 1"><i class="fas fa-arrow-left"></i></button>
+  <p>{{currentPage}} out of {{products.length % this.itemsPerPage + 1}}</p>
+  <button class="cursor-pointer" (click)="nextPage()"><i class="fas fa-arrow-right"></i></button>
+  </div>
+   }
 
 <!-- <h2>{{ product.description }}</h2>
 <img [src]="product.imageUrl" alt="{{ product.title }}">

@@ -29,10 +29,11 @@ export class JoggersComponent {
     this.productService.getProducts()
       .pipe(
         catchError(() => EMPTY),
-        finalize(() => this.loading = false)
+        // finalize(() => this.loading = false)
       )
       .subscribe(products => {
         this.products = products.filter(product => product.title.toLowerCase().includes("puffer"));
+        this.loading = false;
       });
   }
 

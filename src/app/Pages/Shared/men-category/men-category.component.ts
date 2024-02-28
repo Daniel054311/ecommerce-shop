@@ -30,18 +30,20 @@ export class MenCategoryComponent implements OnInit{
     this.productService.getProducts()
       .pipe(
         catchError(() => EMPTY),
-        finalize(() => this.loading = false)
+        // finalize(() => this.loading = false)
       )
       .subscribe(products => {
         this.products = products.filter(product => !product.title.toLowerCase().includes("women's"));
+        this.loading = false;
       });
   }
 
-  // loadProducts(): void {
-  //   this.productService.getProducts().subscribe(products => {
-  //     this.products = products;
-  //   });
-  // }
+  onProductSelect(product: Product): void {
+    // Navigate to the details page with the product ID as a parameter
+    this.productService.setSelectedProduct(product);
+    this.router.navigate(["/details"]);
+    // console.log(product)
+  }
 
   nextPage(): void {
     if (this.hasNextPage()) {
@@ -86,9 +88,7 @@ export class MenCategoryComponent implements OnInit{
     return product.id;
   }
 
-  routeToMen() {
-    this.router.navigate(["/men"])
-  }
+
 
   }
 

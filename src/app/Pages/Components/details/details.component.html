@@ -1,0 +1,127 @@
+<section class="py-[10%]">
+
+<div class="grid md:grid-cols-3 grid-cols-1 gap-[5%] px-5">
+<div></div>
+@if (selectedProduct) {
+<img class="" [src]="selectedProduct.imageUrl" [alt]="selectedProduct.title">
+
+<div class=" flex flex-col gap-5">
+<h1 class="text-blackColor font-bold text-3xl md:w-[50%] w-full">Raven Hoodie With
+Black colored Design</h1>
+<!-- stars -->
+<div class="flex gap-5 items-center">
+  <div class="flex gap-2">
+  <i class="fa-solid fa-star text-yellow-500"></i>
+  <i class="fa-solid fa-star text-yellow-500"></i>
+  <i class="fa-solid fa-star text-yellow-500"></i>
+  <i class="fa-solid fa-star text-yellow-500"></i>
+  <i class="fa-solid fa-star text-yellow-200"></i>
+  </div>
+  <p>35</p>
+  <div class="text-blackColor"><i class="fa-brands fa-rocketchat text-2xl"></i> 120 comment</div>
+</div>
+
+<div class="flex flex-col gap-5">
+<div class="flex gap-5"><h1>Select Size</h1> <p>Size Guilde</p></div>
+
+<div class="flex gap-5">
+<button (click)="changeBgColor('XS')" [ngClass]="{ 'text-white bg-blackBg' : isSizeSelected('XS') }"  class="border-2 border-grayColor p-2 rounded-md hover:text-white hover:bg-blackBg duration-300">XS</button>
+<button (click)="changeBgColor('S')" [ngClass]="{ 'text-white bg-blackBg' : isSizeSelected('S')}"  class="border-2 border-grayColor p-2 rounded-md hover:text-white hover:bg-blackBg duration-300">S</button>
+<button (click)="changeBgColor('M')" [ngClass]="{ 'text-white bg-blackBg' : isSizeSelected('M')}"  class="border-2 border-grayColor p-2 rounded-md hover:text-white hover:bg-blackBg duration-300">M</button>
+<button (click)="changeBgColor('XL')" [ngClass]="{ 'text-white bg-blackBg' : isSizeSelected('XL')}"  class="border-2 border-grayColor p-2 rounded-md hover:text-white hover:bg-blackBg duration-300">XL</button>
+</div>
+
+<div class="flex flex-col gap-5">
+<p>Colours Available</p>
+<div class="flex gap-5">
+ <button class="w-4 h-4 rounded-full bg-black"></button>
+ <button class="w-4 h-4 rounded-full bg-yellow-500"></button>
+ <button class="w-4 h-4 rounded-full bg-pink-300"></button>
+ <button class="w-4 h-4 rounded-full bg-red-800"></button>
+</div>
+</div>
+
+<div class="flex gap-5">
+ <button class="border-2 hover:border-grayColor bg-voilentColor text-white duration-300 p-1 rounded-md"><i class="fa-solid fa-cart-shopping"></i>Add to cart</button>
+ <button class="border-2 border-grayColor p-1 rounded-md">{{selectedProduct.price.currencyCode}} {{selectedProduct.price.amount}}</button>
+</div>
+
+</div>
+</div>
+
+<section class="px-[5%] py-[5%]">
+  <div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
+  Product Description
+  </div>
+
+
+  <div class="flex md:flex-row justify-between py-5">
+  <p class="font-bold ">Description</p>
+  <p>User comments <span>35</span></p>
+  <p>Question & Answer <span>4</span></p>
+  </div>
+
+  <div class="py-[5%]">
+{{selectedProduct.description}}
+  </div>
+
+  <div class="bg-grayBg hidden md:block">
+  <table class="border-2  w-full p-2 ">
+  <tr class="border-2 ">
+   <td class="border-2 px-2">
+    <div class="text-gray-300">Fabric</div>
+    <div>Bio-washed Cotton</div>
+   </td>
+   <td class="border-2 px-2">
+    <div class="text-gray-300">Pattern</div>
+    <div>Printed</div>
+   </td>
+   <td class="px-2">
+    <div class="text-gray-300">Fit</div>
+    <div>Regular-fit</div>
+   </td>
+  </tr>
+
+  <tr class="border-2">
+  <td class="px-2">
+  <div class="text-gray-300">Neck</div>
+  <div>Round Neck</div>
+  </td>
+  <td class="border-2 px-2">
+  <div class="text-gray-300">Sleeve</div>
+  <div>Half-sleeves</div>
+  </td>
+  <td class="px-2">
+  <div class="text-gray-300">Style</div>
+  <div>Casual Wear</div>
+  </td>
+  </tr>
+  </table>
+  </div>
+</section>
+
+<div class="col-span-2 hidden md:flex justify-center relative">
+ <img class="md:w-[50%] rounded-md" [src]="selectedProduct.imageUrl" [alt]="selectedProduct.title">
+
+ <div class="absolute top-[50%] text-4xl text-center text-red-300 font-bold">
+  <p>{{selectedProduct.title}}</p>
+  <button><i class="fa-solid fa-play text-2xl"></i></button>
+ </div>
+</div>
+}
+</div>
+
+<section class="px-[2%] py-[5%]">
+<div class="border-l-4 font-bold text-2xl border-voilentColor pl-2">
+  Similar Products
+</div>
+
+<div class="py-[5%]">
+<app-men-category></app-men-category>
+</div>
+</section>
+
+</section>
+
+
+<app-footer></app-footer>

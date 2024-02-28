@@ -13,3 +13,7 @@ html{
   font-family: "Roboto", sans-serif;
   color:rgba(60, 66, 66, 1) ;
 }
+
+input{
+  caret-color: rgba(132, 52, 225, 1);
+}

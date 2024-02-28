@@ -1,10 +1,11 @@
+
+@if (loading) {
+  <div class="text-voilentColor">Loading...😎</div>
+}
 <div class="grid md:grid-cols-3 grid-cols-1 gap-4">
-  @if (loading) {
-  <div>Loading...😎</div>
-  }
   @for (product of products; track product) {
-  <div (click)="routeToCombos()" class="relative ">
-  <img class="rounded-md hover:shadow-md cursor-pointer" [src]="product.imageUrl" [alt]="product.title">
+  <div  class="relative ">
+  <img (click)=" onProductSelect(product)" class="rounded-md hover:shadow-md cursor-pointer" [src]="product.imageUrl" [alt]="product.title">
 
   <div class="absolute top-10 right-10 ">
   <button (click)="getFavourite(product)" class="bg-white rounded-full w-10 h-10 flex justify-center items-center">
