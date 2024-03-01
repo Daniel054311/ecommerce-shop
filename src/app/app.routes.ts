@@ -6,6 +6,7 @@ import { CombosComponent } from './Pages/Components/combos/combos.component';
 import { JoggersComponent } from './Pages/Components/joggers/joggers.component';
 import { ShopComponent } from './Pages/Components/shop/shop.component';
 import { DetailsComponent } from './Pages/Components/details/details.component';
+import { CartComponent } from './Pages/Components/cart/cart.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,6 +14,6 @@ export const routes: Routes = [
   { path: 'men', component: MenComponent },
   { path: 'combos', component: CombosComponent },
   { path: 'joggers', component: JoggersComponent },
-  // { path: 'shop', component: ShopComponent },
   { path: 'details', component: DetailsComponent },
+  {path: 'cart', component:CartComponent}
 ];

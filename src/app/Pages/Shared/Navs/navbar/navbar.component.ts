@@ -23,16 +23,33 @@ export class NavbarComponent implements OnInit {
   showNav: boolean = false;
   selectedProductCount: number = 0;
 
+
   constructor(private router:Router,private productService: ProductService){}
 
   ngOnInit(): void {
 
     this.getProductCount();
 
+    this.getFavoriteCount();
+
+  }
+
+  routeToCart() {
+    this.selectedProductCount = this.productService.productCount;
+    if (this.selectedProductCount >=1) {
+      this.router.navigate(["/cart"])
+    } else {
+      null
+    }
+
   }
 
   getProductCount(): number {
     return this.productService.productCount;
+  }
+
+  getFavoriteCount() {
+    return this.productService.countFavorite;
   }
 
   toggleNav() {

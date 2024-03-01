@@ -38,15 +38,34 @@ export class LimelightComponent {
 
   onProductSelect(product: Product): void {
     // Navigate to the details page with the product ID as a parameter
-    this.productService.setSelectedProduct(product);
-    this.router.navigate(["/details"]);
-    console.log(product)
+  this.productService.setSelectedProduct(product);
+  this.router.navigate(["/details"]);
+  }
+
+  onFavoriteSelected(product: Product): void {
+    // Navigate to the details page with the product ID as a parameter
+  if (product.liked) {
+  this.productService.setSelectedFavorite(product);
+  } else {
+    null
+  }
   }
 
   getFavourite(product: Product): void {
     // Toggle the liked property of the product
     product.liked = !product.liked;
+     // Increase or decrease countFavorite based on the liked status
+  if (product.liked) {
+    this.productService.incrementsFavorite(1);
+    this.onFavoriteSelected(product);
+  } else {
+    this.productService.decrementsFavorite(1);
+    this.productService.setSelectedFavorite(null);
+    }
+
   }
+
+
   trackFavourite(index: number, product: any): number {
     return product.id;
   }

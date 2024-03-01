@@ -10,8 +10,11 @@
 <img (click)="onProductSelect(product)" class=" rounded-md hover:shadow-md cursor-pointer" [src]="product.imageUrl" [alt]="product.title">
 
 <div class="absolute top-2 right-2 ">
+
 <button (click)="getFavourite(product)" class="bg-white rounded-full w-7 h-7 flex justify-center items-center">
-<i [ngClass]="{ 'text-red-300': product.liked, 'text-blackColor': !product.liked }" class="fa-solid fa-heart relative hover:text-red-300 duration-300" ></i></button>
+<i [ngClass]="{ 'text-red-300': product.liked, 'text-blackColor': !product.liked }" class="fa-solid fa-heart relative hover:text-red-300 duration-300" ></i>
+</button>
+
 </div>
 <div class="flex justify-between py-3">
 <p>{{product.title}}</p>

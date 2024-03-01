@@ -37,11 +37,20 @@ export class WomenCategoryComponent {
   }
 
 
-onProductSelect(product: Product): void {
+  onProductSelect(product: Product): void {
     // Navigate to the details page with the product ID as a parameter
-    this.productService.setSelectedProduct(product);
-    this.router.navigate(["/details"]);
-    console.log(product)
+  this.productService.setSelectedProduct(product);
+  this.router.navigate(["/details"]);
+  }
+
+  onFavoriteSelected(product: Product): void {
+    // Navigate to the details page with the product ID as a parameter
+  if (product.liked) {
+  this.productService.setSelectedFavorite(product);
+  } else {
+    null
+  }
+
   }
 
   nextPage(): void {

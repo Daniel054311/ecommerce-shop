@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../../Service/Product/product-data';
 import { ProductService } from '../../Service/Product/product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { EMPTY, catchError } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { MenCategoryComponent } from "../../Shared/men-category/men-category.component";
@@ -12,7 +12,7 @@ import { FooterComponent } from "../../Shared/footer/footer.component";
     standalone: true,
     templateUrl: './details.component.html',
     styleUrl: './details.component.css',
-    imports: [CommonModule, MenCategoryComponent, FooterComponent]
+    imports: [CommonModule, MenCategoryComponent, FooterComponent,RouterLink]
 })
 export class DetailsComponent {
   selectedProduct: Product | null = null;

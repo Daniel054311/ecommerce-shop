@@ -19,12 +19,27 @@
 
     <!-- icons -->
     <div class="flex gap-5">
-    <button class="bg-[#F6F6F6]   rounded-md p-2"><img src="../../../../../assets/icons/heart.png" alt="favorite icon"></button>
-    <button class="bg-[#F6F6F6] rounded-md p-2"><img src="../../../../../assets/icons/user.png" alt="user icon"></button>
-    <button class="bg-[#F6F6F6] rounded-md p-2 relative">
-    <img src="../../../../../assets/icons/cart.png" alt="">
-    <span class="absolute bg-red-300 w-5 h-5 rounded-full text-white text-center top-0 right-0">{{getProductCount() }}</span>
+    <button class="bg-[#F6F6F6]  relative rounded-md p-2">
+    <img src="../../../../../assets/icons/heart.png" alt="favorite icon" class="">
+    @if (getFavoriteCount() >= 1){
+    <span class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-300 w-5 h-5 rounded-full text-white text-center flex justify-center items-center">
+            {{ getFavoriteCount() }}
+    </span>
+      }
     </button>
+
+    <button class="bg-[#F6F6F6] rounded-md p-2"><img src="../../../../../assets/icons/user.png" alt="user icon"></button>
+
+    <button (click)="routeToCart()" class="bg-[#F6F6F6] rounded-md p-2 relative">
+    <img src="../../../../../assets/icons/cart.png" alt="">
+
+    @if (getProductCount() >= 1) {
+    <span class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-300 w-5 h-5 rounded-full text-white  flex justify-center items-center">
+    {{getProductCount() }}
+    </span>
+    }
+    </button>
+
     </div>
 
     <!-- Hamburger menu -->
