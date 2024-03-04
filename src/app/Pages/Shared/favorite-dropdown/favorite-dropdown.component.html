@@ -1,0 +1,31 @@
+<section class="py-[10%] ">
+<!-- dropdown.component.html -->
+@if (loading) {
+<div class="text-voilentColor">
+  Loading wished products...
+</div>
+}
+
+<div>
+@if (error) {
+<div class="error">{{ error }}</div>
+}
+
+
+<div class="grid grid-cols-2 gap-5 px-5 items-center">
+ @for (product of wishedProducts; track product) {
+<img (click)="onProductSelect(product)" class="rounded-md border-2 hover:border-red-300" [src]="product.imageUrl" [alt]="product.title">
+<ul class="text-center">
+<li>
+ {{ product.price.currencyCode }} {{product.price.amount}}
+</li>
+</ul>
+}
+</div>
+
+
+</div>
+
+
+</section>
+

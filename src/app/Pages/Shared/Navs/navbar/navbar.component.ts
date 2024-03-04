@@ -1,15 +1,16 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ProductService } from '../../../Service/Product/product.service';
+import { FavoriteDropdownComponent } from "../../favorite-dropdown/favorite-dropdown.component";
 
 @Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [RouterModule,CommonModule,NgOptimizedImage],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css',
-
+    selector: 'app-navbar',
+    standalone: true,
+    templateUrl: './navbar.component.html',
+    styleUrl: './navbar.component.css',
+  imports: [RouterModule, CommonModule, NgOptimizedImage, FavoriteDropdownComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })
 export class NavbarComponent implements OnInit {
@@ -22,6 +23,8 @@ export class NavbarComponent implements OnInit {
 
   showNav: boolean = false;
   selectedProductCount: number = 0;
+  dropdownVisible: boolean = false;
+  isHovered: boolean = false;
 
 
   constructor(private router:Router,private productService: ProductService){}
@@ -61,6 +64,22 @@ export class NavbarComponent implements OnInit {
 
   hidNav() {
     this.showNav = false;
+  }
+
+  showDropdown(): void {
+    this.dropdownVisible = true;
+  }
+
+  hideDropdown(): void {
+    this.dropdownVisible = false;
+  }
+
+hovered() {
+    this.isHovered = true;
+}
+
+notHovered() {
+    this.isHovered = false;
   }
 
 }

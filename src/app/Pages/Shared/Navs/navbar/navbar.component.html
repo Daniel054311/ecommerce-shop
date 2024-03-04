@@ -10,7 +10,7 @@
       <li class="text-gray-300 hover:text-blackColor duration-300"><a routerLink="/joggers" routerLinkActive="text-blackColor">Joggers</a></li>
     </ul>
 
-    <div id="searchBar" class="md:flex hidden  rounded-md bg-[#F6F6F6] w-70 px-4 py-1">
+    <div id="searchBar" class="lg:flex hidden   rounded-md bg-[#F6F6F6] w-70 px-4 py-1">
     <form class="flex items-center gap-4">
     <button><i class="fas fa-search text-gray-400"></i></button>
     <input type="text" placeholder="Search" class="bg-[#F6F6F6] w-full outline-none border-none">
@@ -19,8 +19,10 @@
 
     <!-- icons -->
     <div class="flex gap-5">
-    <button class="bg-[#F6F6F6]  relative rounded-md p-2">
-    <img src="../../../../../assets/icons/heart.png" alt="favorite icon" class="">
+
+    <button (mouseover)="showDropdown()" (mouseleave)="hideDropdown()"  class="bg-[#F6F6F6]  relative rounded-md p-2 hover:bg-voilentColor">
+    <ion-icon [ngClass]="{'text-gray-400': !dropdownVisible, 'text-white': dropdownVisible }" name="heart-outline" class="text-2xl text-gray-400 "></ion-icon>
+    <!-- <img src="../../../../../assets/icons/heart.png" alt="favorite icon" class=""> -->
     @if (getFavoriteCount() >= 1){
     <span class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-300 w-5 h-5 rounded-full text-white text-center flex justify-center items-center">
             {{ getFavoriteCount() }}
@@ -28,11 +30,21 @@
       }
     </button>
 
-    <button class="bg-[#F6F6F6] rounded-md p-2"><img src="../../../../../assets/icons/user.png" alt="user icon"></button>
+    <!-- dropdowm -->
+    <div (mouseover)="showDropdown() " (mouseleave)="hideDropdown()" [ngClass]="{ 'hidden': !dropdownVisible }" class="absolute top-16 bg-white border border-gray-300 rounded-md shadow-md hover:cursor-pointer">
+    <app-favorite-dropdown></app-favorite-dropdown>
+    </div>
 
-    <button (click)="routeToCart()" class="bg-[#F6F6F6] rounded-md p-2 relative">
-    <img src="../../../../../assets/icons/cart.png" alt="">
 
+
+  <button (mouseover)="hovered()" (mouseleave)="notHovered()"  class="bg-[#F6F6F6] rounded-md p-2 hover:bg-voilentColor">
+  <ion-icon  [ngClass]="{'text-gray-400': !isHovered, 'text-white': isHovered }" name="person-outline" class="text-2xl text-gray-400"></ion-icon>
+    <!-- <img src="../../../../../assets/icons/user.png" alt="user icon"> -->
+  </button>
+
+    <button (mouseover)="hovered()" (mouseleave)="notHovered()" (click)="routeToCart()" class="bg-[#F6F6F6] rounded-md p-2 relative hover:bg-voilentColor">
+    <!-- <img src="../../../../../assets/icons/cart.png" alt=""> -->
+    <ion-icon [ngClass]="{'text-gray-400': !isHovered, 'text-white': isHovered }" name="cart-outline" class="text-2xl text-gray-400"></ion-icon>
     @if (getProductCount() >= 1) {
     <span class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-300 w-5 h-5 rounded-full text-white  flex justify-center items-center">
     {{getProductCount() }}

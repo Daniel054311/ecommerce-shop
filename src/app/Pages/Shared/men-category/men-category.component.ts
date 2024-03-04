@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from '../../Service/Product/product.service';
 import { Product } from '../../Service/Product/product-data';
 import { EMPTY, catchError, finalize } from 'rxjs';
@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
   styleUrl: './men-category.component.css'
 })
 export class MenCategoryComponent implements OnInit{
+
+  likedClass: string ='text-blackColor';
 
   products: Product[] = [];
   currentPage: number = 1;
@@ -93,17 +95,16 @@ export class MenCategoryComponent implements OnInit{
   getFavourite(product: Product): void {
     // Toggle the liked property of the product
     product.liked = !product.liked;
+    // this.likedClass = product.liked ? 'text-red-300' : 'text-blackColor';
      // Increase or decrease countFavorite based on the liked status
   if (product.liked) {
     this.productService.incrementsFavorite(1);
     this.onFavoriteSelected(product);
   } else {
+    this.productService.removeProductFromWishedProducts(product);
     this.productService.decrementsFavorite(1);
-    this.productService.setSelectedFavorite(null);
     }
-
   }
-
 
 
 

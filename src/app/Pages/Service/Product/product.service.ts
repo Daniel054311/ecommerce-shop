@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable, catchError, count, map, throwError } from 'rxjs';
+import { EMPTY, Observable, catchError, count, map, of, throwError } from 'rxjs';
 import { Product } from './product-data';
 
 @Injectable({
@@ -11,9 +11,11 @@ export class ProductService {
   private productCountKey = 'productCount';
   private countFavoriteKey = 'countFavorite';
   private cartProductsKey = 'cartProducts';
+  private wishedProductKey = 'wishedProducts';
 
   selectedProduct: Product | null = null;
   cartProducts: Product[] = [];
+  wishedProducts: Product[] = []; // Array to store favorite products
 
   productCount: number = 0;
   countFavorite: number = 0;
@@ -25,28 +27,44 @@ export class ProductService {
 
 
   constructor(private http: HttpClient) {
-  const storedProduct = localStorage.getItem(this.selectedProductKey);
-  if (storedProduct) {
-  this.selectedProduct = JSON.parse(storedProduct);
-    }
-
-  const storedCartProducts = localStorage.getItem(this.cartProductsKey);
-  if (storedCartProducts) {
-  this.cartProducts = JSON.parse(storedCartProducts);
+  this.loadFromLocalStorage();
   }
 
-  const storeFavorite = localStorage.getItem(this.countFavoriteKey);
-  if (storeFavorite) {
-  this.countFavorite = JSON.parse(storeFavorite);
-  }
-
-  const storedProductCount = localStorage.getItem(this.productCountKey);
-  if (storedProductCount) {
-    this.productCount = JSON.parse(storedProductCount);
+  private loadFromLocalStorage(): void {
+    const storedProduct = localStorage.getItem(this.selectedProductKey);
+    if (storedProduct) {
+      this.selectedProduct = JSON.parse(storedProduct);
     }
 
-   }
+    const storedCartProducts = localStorage.getItem(this.cartProductsKey);
+    if (storedCartProducts) {
+      this.cartProducts = JSON.parse(storedCartProducts);
+    }
 
+    const storedFavoriteProducts = localStorage.getItem(this.wishedProductKey); // Load favorite products from local storage
+    if (storedFavoriteProducts) {
+      this.wishedProducts = JSON.parse(storedFavoriteProducts);
+    }
+
+    const storedCountFavorite = localStorage.getItem(this.countFavoriteKey);
+    if (storedCountFavorite) {
+      this.countFavorite = JSON.parse(storedCountFavorite);
+    }
+
+    const storedProductCount = localStorage.getItem(this.productCountKey);
+    if (storedProductCount) {
+      this.productCount = JSON.parse(storedProductCount);
+    }
+  }
+
+
+  private updateLocalStorage(): void {
+    localStorage.setItem(this.selectedProductKey, JSON.stringify(this.selectedProduct));
+    localStorage.setItem(this.cartProductsKey, JSON.stringify(this.cartProducts));
+    localStorage.setItem(this.wishedProductKey, JSON.stringify(this.wishedProducts)); // Update favorite products in local storage
+    localStorage.setItem(this.countFavoriteKey, JSON.stringify(this.countFavorite));
+    localStorage.setItem(this.productCountKey, JSON.stringify(this.productCount));
+  }
 
 
   getProduct(): Observable<any> {
@@ -71,8 +89,7 @@ export class ProductService {
     this.selectedProduct = product;
     this.cartCount(1);
     this.cartProducts.push(product); // Add the selected product to the cartProducts array
-    localStorage.setItem(this.selectedProductKey, JSON.stringify(product));
-    localStorage.setItem(this.cartProductsKey, JSON.stringify(this.cartProducts));
+    this.updateLocalStorage();
   }
 
 
@@ -96,17 +113,18 @@ export class ProductService {
     if (index !== -1) {
     this.cartProducts.splice(index, 1);
     this.productCount--; // Decrease product count
-    localStorage.setItem(this.cartProductsKey, JSON.stringify(this.cartProducts)); // Update localStorage
-    localStorage.setItem(this.productCountKey, JSON.stringify(this.productCount));
+    this.updateLocalStorage();
     }
   }
 
   // selected favorite
-  setSelectedFavorite(product: Product |null): void {
-    this.selectedProduct = product;
-    localStorage.setItem(this.selectedProductKey, JSON.stringify(product));
-
+  setSelectedFavorite(product: Product | null): void {
+  if (product !== null) {
+  this.wishedProducts.push(product);
+  this.updateLocalStorage();
   }
+  }
+
 
   getSelectedFavorite(): Product | null {
     return this.selectedProduct;
@@ -115,16 +133,31 @@ export class ProductService {
   incrementsFavorite(count: number): void {
     this.countFavorite += count;
   // TO STORE THE STATE TO LOCAL STORAGE
-
-    // localStorage.setItem(this.selectedFavoriteKey, JSON.stringify(this.countFavorite));
-    // localStorage.setItem(this.countFavoriteKey, JSON.stringify(this.countFavorite))
+  this.updateLocalStorage();
   }
 
   decrementsFavorite(count: number): void {
   this.countFavorite -= count;
   // TO STORE THE STATE TO LOCAL STORAGE
-  // localStorage.setItem(this.selectedFavoriteKey, JSON.stringify(this.countFavorite));
-  // localStorage.setItem(this.countFavoriteKey, JSON.stringify(this.countFavorite))
+  this.updateLocalStorage();
+  }
+
+  getWishedProducts(): Observable<Product[]> {
+  return of(this.wishedProducts).pipe(
+  catchError(error => {
+        // Handle error, log it, or throw it again
+  console.error('Error occurred while fetching wished products:', error);
+  return throwError(error); // Rethrow the error for further handling
+  })
+  );
+  }
+
+  removeProductFromWishedProducts(product: Product): void {
+    const index = this.wishedProducts.findIndex(p => p.id === product.id);
+    if (index !== -1) {
+      this.wishedProducts.splice(index, 1);
+      this.updateLocalStorage();
+    }
   }
 
 

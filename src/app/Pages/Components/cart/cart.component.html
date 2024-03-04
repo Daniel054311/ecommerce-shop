@@ -14,7 +14,7 @@ Already registered? <a class="text-voilentColor" routerLink="#">Please login her
 </div>
 
 <!-- grid view -->
-<div class="grid grid-cols-6 gap-20  items-center justify-center bg-blackBg text-white text-transform: uppercase w-full py-[2%] px-[5%] " >
+<div class="lg:grid hidden grid-cols-6 gap-20  items-center justify-center bg-blackBg text-white text-transform: uppercase lg:w-full py-[2%] px-[5%] " >
 <!--gird navs  v-->
 <div >Product Details</div>
 <div>Price</div><div>Quantity</div>
@@ -31,14 +31,13 @@ Already registered? <a class="text-voilentColor" routerLink="#">Please login her
 }
 
 @for (product of cartProducts; track product) {
-<div class="grid grid-cols-6 gap-20 items-center justify-center py-[2%] px-[5%] border-2 border-gray-100">
+<div class="grid lg:grid-cols-6 gap-20 items-center justify-center py-[2%] px-[5%] border-2 border-gray-100">
 
 <div class="p-2 flex gap-5">
 <img class="rounded-md" [src]="product.imageUrl" [alt]="product.title">
-<p>{{product.title}}</p>
+<p class="lg:block hidden">{{product.title}}</p>
 </div>
-
-<p class="text-center">{{product.price.currencyCode}} {{product.price.amount}}</p>
+<p class="lg:text-center m-auto">{{product.price.currencyCode}} {{product.price.amount}}</p>
 
 <div class="flex  px-2 rounded-md bg-[#F6F6F6] text-gray-400 items-center justify-between">
 <button>-</button>
@@ -48,7 +47,7 @@ Already registered? <a class="text-voilentColor" routerLink="#">Please login her
 
 <button class=" px-2 rounded-md bg-[#F6F6F6] text-gray-400">FREE</button>
 
-<p>{{product.price.currencyCode}} {{product.price.amount}}</p>
+<p class="m-auto">{{product.price.currencyCode}} {{product.price.amount}}</p>
 
 <button (click)="removeProduct(product)"><i class="fa-solid fa-trash text-voilentColor"></i></button>
 
@@ -62,8 +61,8 @@ Already registered? <a class="text-voilentColor" routerLink="#">Please login her
 <p class="font-bold">Discount  Codes</p>
 <p>Enter your coupon code if you have one</p>
 
-<div class="border-2 border-gray-200 rounded-md">
-<input class="rounded-md" type="text">
+<div class="lg:border-2 border-gray-200 rounded-md">
+<input class="rounded-md border-none outline-none" type="text">
 <button class="bg-voilentColor text-white px-2 border-none rounded-r-md">Apply Coupon</button>
 </div>
 <button class="bg-white rounded-md text-blackColor">Continue Shopping</button>
