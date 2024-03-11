@@ -6,13 +6,14 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from "../../Shared/footer/footer.component";
 import { WomenCategoryComponent } from "../../Shared/women-category/women-category.component";
 import { Router } from '@angular/router';
+import { NavbarComponent } from "../../Shared/Navs/navbar/navbar.component";
 
 @Component({
     selector: 'app-women',
     standalone: true,
     templateUrl: './women.component.html',
     styleUrl: './women.component.css',
-    imports: [CommonModule, FooterComponent, WomenCategoryComponent]
+    imports: [CommonModule, FooterComponent, WomenCategoryComponent, NavbarComponent]
 })
 export class WomenComponent implements OnInit{
   products: Product[] = [];

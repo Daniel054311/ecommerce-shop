@@ -6,13 +6,14 @@ import { EMPTY, catchError } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { MenCategoryComponent } from "../../Shared/men-category/men-category.component";
 import { FooterComponent } from "../../Shared/footer/footer.component";
+import { NavbarComponent } from "../../Shared/Navs/navbar/navbar.component";
 
 @Component({
     selector: 'app-details',
     standalone: true,
     templateUrl: './details.component.html',
     styleUrl: './details.component.css',
-    imports: [CommonModule, MenCategoryComponent, FooterComponent,RouterLink]
+    imports: [CommonModule, MenCategoryComponent, FooterComponent, RouterLink, NavbarComponent]
 })
 export class DetailsComponent {
   selectedProduct: Product | null = null;

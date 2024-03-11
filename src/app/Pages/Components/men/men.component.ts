@@ -5,13 +5,14 @@ import { EMPTY, catchError, finalize } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { MenCategoryComponent } from "../../Shared/men-category/men-category.component";
 import { FooterComponent } from "../../Shared/footer/footer.component";
+import { NavbarComponent } from "../../Shared/Navs/navbar/navbar.component";
 
 @Component({
     selector: 'app-men',
     standalone: true,
     templateUrl: './men.component.html',
     styleUrl: './men.component.css',
-    imports: [CommonModule, MenCategoryComponent, FooterComponent]
+    imports: [CommonModule, MenCategoryComponent, FooterComponent, NavbarComponent]
 })
 export class MenComponent {
   products: Product[] = [];

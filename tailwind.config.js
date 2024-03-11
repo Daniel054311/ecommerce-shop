@@ -5,7 +5,8 @@ module.exports = {
     extend: {
     colors: {
         voilentColor: ' rgba(132, 52, 225, 1)',
-        blackColor:'rgba(60, 66, 66, 1)'
+        blackColor: 'rgba(60, 66, 66, 1)',
+        lightBlueColor:'rgba(71, 172, 223, 1)'
       },
       backgroundColor:{
         blackBg: 'rgba(60, 66, 66, 1)',

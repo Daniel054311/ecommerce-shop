@@ -1,0 +1,47 @@
+<header class="pb-[5%]">
+<nav class="flex items-center justify-between py-5 px-10 shadow-md fixed top-0 w-full z-50 bg-white">
+<div  class="cursor-pointer">
+<img src="../../../../../assets/Logo.png" alt="logo">
+</div>
+
+<div class="rounded-md bg-[#F6F6F6] w-70 px-4 py-1 hidden lg:block">
+<form action="" class="flex items-center gap-4">
+<button><i class="fas fa-search text-gray-400"></i></button>
+<input type="text" placeholder="Search" class="bg-[#F6F6F6] w-full outline-none border-none">
+</form>
+</div>
+
+<!-- language translator -->
+<!-- <div id="google_translate_element"></div> -->
+
+
+<div class="hidden lg:block">
+  <select id="language_select" >
+    <option value="en">English</option>
+    <option value="es">Spanish</option>
+    <option value="fr">French</option>
+    <option value="zh-CN">Chinese</option>
+    <option value="ja">Japanese</option>
+  </select>
+</div>
+
+
+
+<div class="flex gap-5">
+<button
+[ngClass]="productService.getActiveButton()  === 'login' ? 'bg-voilentColor text-white' : 'bg-white text-voilentColor'"
+(click)="handleButtonClick('login')"
+class="border-2 py-2 px-4 rounded-md">
+    Login
+</button>
+<button
+[ngClass]="productService.getActiveButton() === 'signup' ? 'bg-voilentColor text-white' : 'bg-white text-voilentColor'"
+(click)="handleButtonClick('signup')"
+class="border-2 py-2 px-4 rounded-md">
+    Sign Up
+</button>
+</div>
+
+
+</nav>
+</header>

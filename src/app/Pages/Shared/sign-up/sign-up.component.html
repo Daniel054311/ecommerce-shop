@@ -1,0 +1,96 @@
+<app-sign-up-nav></app-sign-up-nav>
+
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-10 ">
+
+<div class="hidden lg:block">
+<img class="w-full " src="../../../../assets/signUp/sign-up.png" alt="sign up image">
+</div>
+
+<div class="w-full h-full px-[5%] py-[10%] flex flex-col gap-10">
+<div class="flex flex-col gap-2">
+<h1 class="font-bold text-2xl">Sign Up</h1>
+<p>Sign up for free to access to in any of our products </p>
+</div>
+
+<div class="flex flex-col gap-5">
+<button class="border-2 rounded-md p-2 text-voilentColor font-bold flex items-center justify-center space-x-2">
+<span class="w-6 h-6 bg-no-repeat bg-center bg-contain" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMiAxMyAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=');"></span>
+<span>Continue With Google</span>
+</button>
+
+<button class="border-2 rounded-md p-2 text-voilentColor font-bold "><ion-icon class="text-lightBlueColor" name="logo-twitter"></ion-icon> Continue With Twitter</button>
+</div>
+
+
+<form class="flex flex-col gap-5" action="" [formGroup]="signUpForm" (ngSubmit)="formAction()">
+
+<!-- Email Address -->
+<label for="email">Email Address</label>
+<div class="border-2 rounded-md p-2">
+<input name="email" class="border-none outline-none w-full" type="email" placeholder="designer@gmail.com" formControlName="email" required>
+</div>
+@if (signUpForm.get('email')?.errors && (signUpForm.get('email')?.dirty || signUpForm.get('email')?.touched)) {
+  @if (signUpForm.get('email')?.errors?.['required']){
+  <div class="text-red-300">Email is required</div>
+  }
+  @if (signUpForm.get('email')?.errors?.['email']) {
+  <div class="text-red-300">Invalid email format</div>
+  }
+  }
+
+<!-- password -->
+<div>
+<div class="relative">
+<div class="flex justify-between">
+<label for="password">Password</label>
+<span (click)="togglePassword()" class=" cursor-pointer">
+<i *ngIf="showPassword" class="fa fa-eye-slash" aria-hidden="true" id="eyeIcon"></i>
+<i *ngIf="!showPassword" class="fa fa-eye" aria-hidden="true" id="eyeIcon"></i>
+</span>
+</div>
+
+<div class="border-2 rounded-md p-2 relative">
+<input name="password" class="border-none outline-none w-full pr-10" type="{{ showPassword ? 'text' : 'password' }}" id="passwordInput" formControlName="password" required>
+</div>
+</div>
+
+
+@if (signUpForm.get('password')?.errors && (signUpForm.get('password')?.dirty || signUpForm.get('password')?.touched)) {
+<div >
+@if (signUpForm.get('password')?.errors?.['required'])  {
+<div class="text-red-300" >Password is required</div>
+}
+@if (signUpForm.get('password')?.errors?.['minlength']) {
+<div class="text-red-300">Password must be at least 8 characters</div>
+}
+</div>
+}
+
+<p class="text-blackColor">Use 8 or more characters with a mix of letters, numbers & symbols</p>
+</div>
+<!-- terms and conditions -->
+<div>
+
+</div>
+<div class="flex gap-4">
+<input class="" type="checkbox" name="checkbox" formControlName="checkbox" id="checkbox">
+<div>Agree to our <a class="hover:underline" href="">Terms of use</a>  and <a class="hover:underline" href="">Privacy Policy </a> </div>
+</div>
+
+<div class="flex gap-4">
+<input class="" type="checkbox" name="checkbox" formControlName="checkbox" id="checkbox">
+<div>Subscribe to our monthly newsletter</div>
+</div>
+
+
+<div>
+<button type="submit"  class="py-2 px-5 bg-voilentColor text-white rounded-md ">Sign Up</button>
+<div></div>
+<p>Already have an  account? <a class="hover:underline" routerLink="">Log in</a></p>
+</div>
+</form>
+
+</div>
+
+</section>
+

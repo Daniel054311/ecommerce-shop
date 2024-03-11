@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { EMPTY, Observable, catchError, count, map, of, throwError } from 'rxjs';
 import { Product } from './product-data';
 
+// Declare the 'google' object
+declare const google: any;
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +21,7 @@ export class ProductService {
 
   productCount: number = 0;
   countFavorite: number = 0;
+  activeButton: string = '';
 
   private apiUrl = 'https://mock.shop/api?query={product(id:%20%22gid://shopify/Product/7982905098262%22){id%20title%20description%20featuredImage%20{id%20url}%20variants(first:%203){edges%20{cursor%20node%20{id%20title%20image%20{url}%20price%20{amount%20currencyCode}}}}}}';
   private apiUrl2 = 'https://mock.shop/api?query={products(first:%2020){edges%20{node%20{id%20title%20description%20featuredImage%20{id%20url}%20variants(first:%203){edges%20{node%20{price%20{amount%20currencyCode}}}}}}}}';
@@ -160,5 +163,16 @@ export class ProductService {
     }
   }
 
+translatePage(selectedLanguage: string) {
+ new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: selectedLanguage}, 'google_translate_element');
+  }
+
+  setActiveButton(button: string): void {
+    this.activeButton = button;
+  }
+
+  getActiveButton(): string {
+    return this.activeButton;
+  }
 
 }

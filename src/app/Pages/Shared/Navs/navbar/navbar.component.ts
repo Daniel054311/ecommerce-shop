@@ -25,6 +25,7 @@ export class NavbarComponent implements OnInit {
   selectedProductCount: number = 0;
   dropdownVisible: boolean = false;
   isHovered: boolean = false;
+  isAuthVisible: boolean = false;
 
 
   constructor(private router:Router,private productService: ProductService){}
@@ -79,7 +80,14 @@ hovered() {
 }
 
 notHovered() {
-    this.isHovered = false;
+this.isHovered = false;
   }
+
+showAuth() {
+  this.isAuthVisible = true;
+}
+hideAuth() {
+  this.isAuthVisible = false;
+}
 
 }

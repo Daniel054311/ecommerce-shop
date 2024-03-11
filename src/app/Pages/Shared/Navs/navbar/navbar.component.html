@@ -37,10 +37,16 @@
 
 
 
-  <button (mouseover)="hovered()" (mouseleave)="notHovered()"  class="bg-[#F6F6F6] rounded-md p-2 hover:bg-voilentColor">
-  <ion-icon  [ngClass]="{'text-gray-400': !isHovered, 'text-white': isHovered }" name="person-outline" class="text-2xl text-gray-400"></ion-icon>
+  <button  (mouseover)="showAuth()" (mouseleave)="hideAuth()"  class="bg-[#F6F6F6] relative rounded-md p-2 hover:bg-voilentColor">
+  <ion-icon  [ngClass]="{'text-gray-400': !isAuthVisible, 'text-white': isAuthVisible }" name="person-outline" class="text-2xl text-gray-400"></ion-icon>
     <!-- <img src="../../../../../assets/icons/user.png" alt="user icon"> -->
   </button>
+  <div (mouseover)="showAuth()" (mouseleave)="hideAuth()" class="absolute top-16 right-20 bg-white border border-gray-300 rounded-md shadow-md hover:cursor-pointer">
+  <div class="flex flex-col p-2" [ngClass]="{ 'hidden': !isAuthVisible }">
+  <a class="hover:text-voilentColor hover:underline" routerLink="/sign-up">Sign Up</a>
+  <a class="hover:text-voilentColor hover:underline" routerLink="/login">Login</a>
+  </div>
+  </div>
 
     <button (mouseover)="hovered()" (mouseleave)="notHovered()" (click)="routeToCart()" class="bg-[#F6F6F6] rounded-md p-2 relative hover:bg-voilentColor">
     <!-- <img src="../../../../../assets/icons/cart.png" alt=""> -->

@@ -5,13 +5,14 @@ import { EMPTY, catchError, finalize } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from "../../Shared/footer/footer.component";
 import { LimelightComponent } from "../../Shared/limelight/limelight.component";
+import { NavbarComponent } from "../../Shared/Navs/navbar/navbar.component";
 
 @Component({
     selector: 'app-combos',
     standalone: true,
     templateUrl: './combos.component.html',
     styleUrl: './combos.component.css',
-    imports: [CommonModule, FooterComponent, LimelightComponent]
+    imports: [CommonModule, FooterComponent, LimelightComponent, NavbarComponent]
 })
 export class CombosComponent {
   products: Product[] = [];
